@@ -1,0 +1,114 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/register.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/views/login.html">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <title>Los Rikolinos - Registro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins&family=Roboto&family=Spline+Sans:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../img/favicon.ico">
+
+
+</head>
+<body>
+
+    <!-- Inicio del Header -->
+
+    <%- include('../partials/header')  %> 
+
+    <!-- Fin del Header -->
+
+    <!-- Inicio del Main -->
+
+    <main>
+        <section class="top-main">
+            <!-- icono usuario  -->
+            <div class="usuario">
+                <i class="far fa-user-circle"></i>
+            </div>
+        </section>
+  
+        <!-- Titulo Registro...  -->
+        <p class="register-user">Editar usuario</p>
+        <!-- Comienza el formulario  -->
+        <form action="/profile/edit/<%=locals.userLogged.id%>?_method=PUT" method="POST" enctype="multipart/form-data">
+
+            <section >
+
+                <div class="form-register">
+                <!-- Poner nombre y apellido de usuario  -->
+                <label for="fullName"></label>
+                <input 
+                type="text" 
+                placeholder="Nuevo nombre de usuario" 
+                name="fullName" 
+                id="fullName"  
+                value="<%= locals.userLogged.full_name %>">
+                    <div class="text-danger">
+                    </div>
+                
+                <!-- Poner contraseña de usuario  -->
+                    <input 
+                    type="password" 
+                    placeholder="Nueva contraseña" 
+                    name="password" 
+                    id="password" 
+                    value="<%= %>" >
+
+                        <div class="text-danger">
+                        </div>
+                
+                    <!-- Poner contraseña de usuario, confirmar  -->
+                    <input 
+                    type="password" 
+                    placeholder="Confirmar contraseña" 
+                    name="confirm" 
+                    id="password" 
+                    value="<%= locals.oldData ? oldData.confirm : null %>" >
+
+                        <div class="text-danger">
+                        </div>
+
+                    <label for="avatar">Tu nuevo avatar:</label>
+                    <input 
+                    type="file" 
+                    name="avatar" 
+                    id="avatar" 
+                    value="<%= locals.userLogged.avatar %>">
+                        <div class="text-danger">
+                        </div>
+                </div>
+
+            </section>
+            <!-- Boton de Registro -->
+        <section class="buton">
+            <input type="submit" value="Editar usuario">
+            </section>
+
+
+            
+
+    </main>
+
+    <!-- Fin del Main -->
+
+    <!-- Inicio del Footer -->
+
+    <footer>
+        
+        <%- include('../partials/footer-user')  %>
+
+    </footer>
+
+    <!-- Fin del Footer -->
+    
+</body>
+</html>

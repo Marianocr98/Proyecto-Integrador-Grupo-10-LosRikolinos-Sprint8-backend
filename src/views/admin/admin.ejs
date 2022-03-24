@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/create.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <title>Cargar nuevos productos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Indie+Flower&family=Pacifico&family=Permanent+Marker&family=Roboto:ital,wght@1,100&family=Source+Sans+Pro:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Caveat&family=Indie+Flower&family=Pacifico&family=Permanent+Marker&family=Roboto:ital,wght@1,100&family=Source+Sans+Pro:wght@600&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../img/favicon.ico">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/hamburgers/1.1.3/hamburgers.min.css"
+    integrity="sha512-+mlclc5Q/eHs49oIOCxnnENudJWuNqX5AogCiqRBgKnpoplPzETg2fkgBFVC6WYUVxYYljuxPNG8RE7yBy1K+g=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+    <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body>
+
+    <%- include('../partials/header') %> 
+
+    <main>
+
+        <div class="container-title">
+            <h1 class="title">Subir productos</h1>
+        </div>
+
+        <form class="form" action="/productos/createProduct" method="POST" enctype="multipart/form-data">
+
+            <div class="padre-create">
+
+                <div class="name-submit-products">
+                    <label for="title">Nombre:</label>
+                    <input type="text" name="title" id="name-product">
+
+                    <!-- Errores -->
+
+                    <% if (locals.errors && errors.title) { %>
+                        <div class="text-danger">
+                            <p><%= errors.title.msg %></p>
+                        </div>
+                    <% } %>
+
+                    <!-- Errores front -->
+                <div class="error" style="width:350px">
+                    <small class="text-danger errorTitle"></small>
+                </div>
+
+                </div>
+
+                <div class="price">
+                    <label for="price">Precio: </label>
+                    <input type="number" name="price" id="price">
+
+                    <!-- Errores -->
+                    <% if (locals.errors && errors.price) { %>
+                        <div class="text-danger">
+                            <p><%= errors.price.msg %></p>
+                        </div>
+                    <% } %>
+
+                    <!-- Errores front-->
+                <div class="error" style="width:350px">
+                    <small class="text-danger errorPrice"></small>
+                </div>
+
+                </div>
+
+                
+                <div class="categorias-real">
+                    <label for="category">Categoria:</label>
+                    <select name="category" id="category" >
+                        <% categories.forEach(category => { %>
+                            <option value="<%= category.id %>"><%=category.name%></option>
+                        <% }) %>
+                    </select>
+                </div>
+                
+                <div class="file-submit-product">
+                    <label for="imgProductos">Imagen del producto:</label>
+                    <input type="file" name="imgProductos" id="file">
+
+                    <!-- Errores -->
+                    <% if (locals.errors && errors.imgProductos) { %>
+                        <div class="text-danger">
+                            <p><%= errors.imgProductos.msg %></p>
+                        </div>
+                    <% } %>
+                    
+                    <!-- Errores front -->
+                    <div class="error" style="width:350px">
+                        <small class="text-danger errorFile"></small>
+                        </div>
+
+                </div>
+                
+                <div class="description-submit-products">
+                    <label for="description">Descripción:</label>
+                    
+                    <textarea name="description" id="description" placeholder="Descripción del producto" cols="0" rows="6"></textarea>
+
+                    <!-- Errores front-->
+                <div class="error">
+                    <small class="text-danger errorDescription"></small>
+                </div>
+
+                <!-- Errores -->
+                <% if (locals.errors && errors.description) { %>
+                <div class="text-danger">
+                    <p><%= errors.description.msg %></p>
+                </div>
+            <% } %>
+                </div>
+
+                <div class="button-admin">
+    
+                    <button  type="submit">Crear Producto</button>
+
+                </div>
+
+            </div>
+
+        </form>
+
+        
+    </main>
+
+    <%- include('../partials/footer-user') %> 
+
+    <!--Scripts-->
+    <script src = "/js/ValidationsProduct.js"></script>
+    <script src = "/js/index_Dom.js" type = "module"></script>
+    <script src = "/js/Menu.js" type = "module"></script>
+    
+</body>
+</html>

@@ -1,0 +1,186 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/register.css">
+    <link rel="stylesheet" href="/views/login.html">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <title>Los Rikolinos - Registro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hamburgers/1.1.3/hamburgers.min.css" integrity="sha512-+mlclc5Q/eHs49oIOCxnnENudJWuNqX5AogCiqRBgKnpoplPzETg2fkgBFVC6WYUVxYYljuxPNG8RE7yBy1K+g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/css/styles.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins&family=Roboto&family=Spline+Sans:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/styles.css">
+    
+    <link rel="shortcut icon" type="image/x-icon" href="../../../img/favicon.ico">
+
+</head>
+<body>
+
+    <!-- Inicio del Header -->
+
+    <%- include('../partials/header')  %> 
+
+    <!-- Fin del Header -->
+
+    <!-- Inicio del Main -->
+
+    <main>
+        <section class="top-main">
+            <!-- icono usuario  -->
+            <div class="usuario">
+                <i class="far fa-user-circle"></i>
+            </div>
+        </section>
+
+            <!-- Titulo Registro...  -->
+            <p class="register-user">Registrarse</p>
+            <!-- Comienza el formulario  -->
+
+            <section >
+
+                <div class="form-register">
+
+
+        <form class = "form" action="/register" method="POST" enctype="multipart/form-data" >
+
+                <!-- Poner nombre y apellido de usuario  -->
+                <label for="fullName"></label>
+            
+                <div class="formulario__group-input">
+                <input type="text" 
+                placeholder="Nombre de usuario" 
+                name="fullName" 
+                id="fullName"
+                autocomplete="additional-name" 
+                value="<%= locals.oldData ? oldData.fullName : null %>">
+
+                <!-- Errores front-->
+                <div class="error">
+                    <small class="text-danger errorFN"></small>
+                </div>
+                
+                <%if(locals.errors && errors.fullName) { %>
+                    <div class="text-danger">
+                        <%= errors.fullName.msg %> 
+                    </div>
+                    <% } %> 
+                </div>    
+
+            <!-- Poner email de usuario  -->
+                
+                <input 
+                type="email" 
+                placeholder="Correo electronico" 
+                name="email" 
+                id="email"
+                autocomplete="additional-name" 
+                value="<%= locals.oldData ? oldData.email : null %>">
+
+                <!-- Errores front-->
+                <div class="error">
+                    <small class="text-danger errorEmail"></small>
+                </div>
+
+                <%if(locals.errors && errors.email) { %>
+                    <div class="text-danger">
+                        <%= errors.email.msg %> 
+                    </div>
+                    <% } %> 
+                
+                <!-- Poner contraseña de usuario  -->
+                    <input 
+                    type="password" 
+                    placeholder="Escribe tu contraseña" 
+                    name="password" 
+                    id="password"
+                    autocomplete="additional-name"
+                    value="<%= locals.oldData ? oldData.password : null %>" >
+
+                    <!-- Errores front-->
+                    <div class="error">
+                        <small class="text-danger errorPassword"></small>
+                    </div>
+
+                    <%if(locals.errors && errors.password) { %>
+                        <div class="text-danger">
+                            <%= errors.password.msg %> 
+                        </div>
+                        <% } %> 
+                
+                    <!-- Poner contraseña de usuario, confirmar  -->
+                    <input 
+                    type="password" 
+                    placeholder="Confirmar tu contraseña" 
+                    name="confirm" 
+                    id="confirm"
+                    autocomplete="additional-name" 
+                    value="<%= locals.oldData ? oldData.confirm : null %>" >
+
+                    <!-- Errores front-->
+                    <div class="error">
+                        <small class="text-danger errorConfirm"></small>
+                    </div>
+
+                    <%if(locals.errors && errors.confirm) { %>
+                        <div class="text-danger">
+                            <%= errors.confirm.msg %> 
+                        </div>
+                        <% } %>
+
+                    <label for="avatar">Coloca tu avatar:</label>
+                    <input 
+                    type="file" 
+                    name="avatar" 
+                    id="avatar"
+                    value="<%= locals.oldData ? oldData.avatar : null %>">
+
+                    <!-- Errores front-->
+                    <div class="error">
+                        <small class="text-danger errorAvatar"></small>
+                    </div>
+
+                    <% if (locals.errors && errors.avatar) { %>
+                        <div class="text-danger">
+                            <%= errors.avatar.msg %>
+                        </div>
+                    <% } %>
+                </div>
+
+            </section>
+            <!-- Boton de Registro -->
+            <section class="buton">
+                <input type="submit" value="Registrarme" >
+            </section>
+
+            <hr class="hr">
+
+            <div class="link">
+                <p>¿Tenés cuenta?</p>
+                <a class="link" href="/login">Iniciar sesión</a>
+            </div>
+        </form>
+
+    </main>
+
+    <!-- Fin del Main -->
+
+    <!-- Inicio del Footer -->
+
+    <footer>
+        
+        <%- include('../partials/footer-user')  %>
+
+    </footer>
+
+    <!-- Fin del Footer -->
+    <script src = "/js/ValidationsRegister.js"></script>
+    <script src = "/js/index_Dom.js" type = "module"></script>
+    <script src = "/js/Menu.js" type = "module"></script>
+</body>
+</html>

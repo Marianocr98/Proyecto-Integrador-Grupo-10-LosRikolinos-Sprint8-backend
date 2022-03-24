@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/hamburgers/1.1.3/hamburgers.min.css"
+      integrity="sha512-+mlclc5Q/eHs49oIOCxnnENudJWuNqX5AogCiqRBgKnpoplPzETg2fkgBFVC6WYUVxYYljuxPNG8RE7yBy1K+g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Amiri:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <title>Los Rikolinos</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Indie+Flower&family=Pacifico&family=Permanent+Marker&family=Roboto:ital,wght@1,100&family=Source+Sans+Pro:wght@600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Caveat&family=Indie+Flower&family=Pacifico&family=Permanent+Marker&family=Roboto:ital,wght@1,100&family=Source+Sans+Pro:wght@600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/hamburgers/1.1.3/hamburgers.min.css"
+    integrity="sha512-+mlclc5Q/eHs49oIOCxnnENudJWuNqX5AogCiqRBgKnpoplPzETg2fkgBFVC6WYUVxYYljuxPNG8RE7yBy1K+g=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/css/productos.css">
+
+    <!--  -->
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="../../../img/favicon.ico"
+    />
+  </head>
+  <body>
+    <!-- Inicio del Header -->
+
+    <%- include('../partials/header')%>
+
+    <!-- Fin del Header -->
+
+    <!-- Inicio del Main -->
+
+    <main>
+      <div class="slider">
+        <ul>
+          <li>
+            <img src="/img/products/3slider-2.jpg" alt="" />
+          </li>
+
+          <li>
+            <img src="/img/products/3slider-3.jpg" alt="" />
+          </li>
+
+          <li>
+            <img src="/img/products/3slider-4.jpg" alt="" />
+          </li>
+
+          <li>
+            <img src="/img/products/3slider-1.jpg" alt="" />
+          </li>
+        </ul>
+      </div>
+
+      <div class="container-title">
+        <h2>Especialidades</h2>
+      </div>
+      <section class="conteiner-especialidades">
+        <% categories.forEach(element => { %>
+        <div class="productos">
+          <a href="/menu/<%=  element.id %> ">
+            <h3><%= element.name %></h3>
+            <img
+              src="/img/products/<%= element.image %> "
+              alt=" <%= element.text_alternate %> "
+            />
+          </a>
+          <p><%= element.text_alternate %></p>
+        </div>
+
+        <% }) %>
+      </section>
+
+      <div class="ver-mas">
+        <a href="/menu">
+          <p>Ver mas</p>
+        </a>
+      </div>
+      <div>
+      <div class="container-title">
+        <h2>Prueba las mejores empanadas del noroeste</h2>
+      </div>
+
+      <section  class="conteiner-especialidades">
+        <% producto.forEach(element => { %>
+            <article class="container-productos">
+                <a href="products/<%=element.id %>">
+                    <h4> <%= element.title  %> </h4>
+                </a> 
+                <div class="container-img-barrita">
+                    <div class="container-img">
+                        <a href="products/<%=element.id %>">
+                            <img src= "/img/products/<%= element.image %> " alt="<%= element.imgDescription %> ">
+                        </a>
+                        <h2> $<%= element.price %>,00 </h2>
+                    </div>
+                    <div class="container-barrita">
+                        <button>-</button>
+                        <p>1</p>
+                        <button>+</button>
+                        <button>Añadir al carrito</button>
+                    </div>
+                </div>
+        </article>
+          <% }) %>
+    </section>
+    <div class="ver-mas">
+        <a href="/products">
+          <p>Ver mas</p>
+        </a>
+      </div>
+
+    <div class="container-title">
+        <h2>Conozca a nuestro chef de confianza </h2>
+      </div>
+
+      <div class="container-title">
+        <h2 id="Nosotros">Nosotros</h2>
+      </div>
+
+      <br />
+      <br />
+
+      <section class="nosotros">
+        <p>
+            En Los Rikolinos nos preocupamos por ofrecerte una excelente
+            propuesta. Productos elaborados con materias primas y productos de la
+            más alta calidad. Contamos con la más moderna tecnología para la
+            elaboración de nuestras variedades de productos. Exquisitos sabores
+            que harán de tus almuerzos y cenas momentos únicos. Los Rikolinos nos
+            invita a disfrutar de la excelencia de la gastronomia Argentina, en un
+            ambiente que recrea lo mejor de nuestra tradición y brinda la más
+            personalizada atención. Ofrece a los amantes de la buena cocina una
+            oferta gastronómica donde abundan los cortes y los platos más
+            tradicionales de la cocina criolla. ...Gracias por siempre
+            elegirnos... .
+        </p>
+      </section>
+    </main>
+
+    <!-- Fin de Main -->
+
+    <!-- Inicio del Footer -->
+
+    <%- include('../partials/footer') %>
+
+    <!-- Fin del footer -->
+
+    <!-- scripts -->
+    <script src="/js/index.js"></script>
+    <script src="/js/index_Dom.js" type="module"></script>
+    <script src="/js/Menu.js" type="module"></script>
+  </body>
+</html>

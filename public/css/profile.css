@@ -1,0 +1,78 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container-profile {
+    display: flex;
+    justify-content: space-around;
+}
+
+.box-profile{
+    width: 360px;
+}
+
+
+
+.emailUser{
+    color: black;
+    font-size: 25px;
+    background-color: rgb(253, 253, 253);
+    width: 100%;
+    height: 50px;
+    border-radius: 10px;
+    box-shadow: 5px 10px rgb(128, 25, 25);
+}
+
+.button-editUser{
+    margin: 20px auto;
+    text-align: center;
+}
+
+button{
+    border-radius: 15px;
+    color: #fff;
+    border: 1px solid rgb(255, 255, 255);
+    background: rgb(0, 0, 0); 
+    padding: 5px;
+    height: 45px;
+    max-width: 250px;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 20px;
+}
+
+.email{
+    color: rgb(128, 25, 25);
+    text-align: center;
+    font-size: 25px;
+    padding: 5px;
+}
+
+.name-profile{
+    text-align: center;
+    color: rgb(128, 25, 25);
+    font-size: 22px;
+    margin: 10px;
+}
+
+.img-profile{
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.box-img-profile{
+    width: 100%;
+    text-align: center;
+}
+@media (min-width : 769px){
+    .container-profile{
+        justify-content: flex-start;
+    }
+    .box-profile{
+        margin:0 20px 0 ;
+
+    }
+}
