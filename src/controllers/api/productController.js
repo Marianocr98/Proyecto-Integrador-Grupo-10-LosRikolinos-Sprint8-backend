@@ -16,17 +16,22 @@ controller = {
                     detail: '/api/products/' + product.id
                 })
             });
-            let category = {
-                hamburguesas: 5,
-                pizzas: 6,
-                pastas: 4,
-                empanadas: 6,
-                asado: 4,
-                bebidas: 6
-            };
+            let Hamburguesas = products.filter(product => product.category_id === 1).length
+            let Pizzas = products.filter(product => product.category_id === 2).length
+            let Pastas = products.filter(product => product.category_id === 3).length
+            let Empanadas = products.filter(product => product.category_id === 4).length
+            let Asado = products.filter(product => product.category_id === 5).length
+            let Bebidas = products.filter(product => product.category_id === 6).length
             return res.json({
                 count: products.length,
-                countByCategory: category,
+                countByCategory: {
+                    Hamburguesas,
+                    Pizzas,
+                    Pastas,
+                    Empanadas,
+                    Asado,
+                    Bebidas
+                },
                 products: listProducts
             })
         })            
