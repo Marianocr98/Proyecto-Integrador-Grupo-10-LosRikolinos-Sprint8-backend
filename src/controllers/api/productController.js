@@ -60,7 +60,14 @@ controller = {
                 status: 200
             })
         })
-    }
+    },
+   /* imgProduct: (req, res) =>{
+        db.Product.findByPk(req.params.image)
+        .then(imgProduct =>{
+            return res.render(imgProduct);
+             console.log(imgProduct)
+        })
+    }*/
 }
 
 module.exports = controller;

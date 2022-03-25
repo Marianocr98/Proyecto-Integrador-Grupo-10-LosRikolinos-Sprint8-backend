@@ -54,7 +54,7 @@ const rutaUser = require('./routers/userRouter') /*airu*/
 const products = require('./routers/productsRouter');
 //Requerimiento rutas Api
 const apiProductRutas = require('./routers/api/product') /*airu*/
-
+const apiUserRutas = require('./routers/api/user')
 
 /* RUTAS */
 app.use('/', mainRutas);
@@ -62,7 +62,7 @@ app.use('/', rutaUser)
 app.use('/', products);
 
 app.use('/api/products', apiProductRutas);
-
+app.use('/api/user', apiUserRutas);
 
 /*Server Funcionando*/
 app.listen(process.env.PORT || 3000, ()=>{

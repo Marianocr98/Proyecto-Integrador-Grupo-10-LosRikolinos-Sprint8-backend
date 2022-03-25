@@ -9,4 +9,6 @@ router.get('/category/:id', productController.listByCategory);
 //ver producto por id
 router.get('/:id', productController.show);
 
+//router.get('/img/:id', productController.imgProduct);
+
 module.exports = router;
