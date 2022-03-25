@@ -7,12 +7,7 @@ const cookies = require('cookie-parser');
 
 app.use(express.static(path.join(__dirname, '../public')));
 
-// catch 404 and forward to error handler
-
-
 const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
-
-
 
 //App session 
 app.use(session({
@@ -26,12 +21,10 @@ app.use(session({
 app.use(cookies());
 
 app.use(userLoggedMiddleware);
-
-// catch 404 and forward to error handler
-
-
 /*Para procesar los FORMULARIOS */
 app.use(express.urlencoded({extended:false}));
+
+app.use(express.json());
 
 /* EJS */ 
 app.set('view engine', 'ejs');
@@ -59,12 +52,16 @@ app.use(function(err, req, res, next) {
 const mainRutas = require('./routers/indexRouter');
 const rutaUser = require('./routers/userRouter') /*airu*/ 
 const products = require('./routers/productsRouter');
+//Requerimiento rutas Api
+const apiProductRutas = require('./routers/api/product') /*airu*/
 
 
 /* RUTAS */
 app.use('/', mainRutas);
 app.use('/', rutaUser) 
 app.use('/', products);
+
+app.use('/api/products', apiProductRutas);
 
 
 /*Server Funcionando*/
