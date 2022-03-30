@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="/views/login.html">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <title>Los Rikolinos - Registro</title>
+    <title>Los Rikolinos - Editar Usuario</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins&family=Roboto&family=Spline+Sans:wght@300&display=swap" rel="stylesheet">
@@ -52,7 +52,7 @@
                 name="fullName" 
                 id="fullName"  
                 value="<%= locals.userLogged.full_name %>">
-                    <div class="text-danger">
+                    <div class="text-danger errorFN">
                     </div>
                 
                 <!-- Poner contraseña de usuario  -->
@@ -63,7 +63,7 @@
                     id="password" 
                     value="<%= %>" >
 
-                        <div class="text-danger">
+                        <div class="text-danger errorPassword">
                         </div>
                 
                     <!-- Poner contraseña de usuario, confirmar  -->
@@ -71,10 +71,10 @@
                     type="password" 
                     placeholder="Confirmar contraseña" 
                     name="confirm" 
-                    id="password" 
+                    id="confirm" 
                     value="<%= locals.oldData ? oldData.confirm : null %>" >
 
-                        <div class="text-danger">
+                        <div class="text-danger errorConfirm">
                         </div>
 
                     <label for="avatar">Tu nuevo avatar:</label>
@@ -83,7 +83,7 @@
                     name="avatar" 
                     id="avatar" 
                     value="<%= locals.userLogged.avatar %>">
-                        <div class="text-danger">
+                        <div class="text-danger errorAvatar">
                         </div>
                 </div>
 
@@ -109,6 +109,10 @@
     </footer>
 
     <!-- Fin del Footer -->
+
+    <script src="/js/ValidationsEditUser.js"></script>
+    <script src = "/js/index_Dom.js" type = "module"></script>
+    <script src = "/js/Menu.js" type = "module"></script>
     
 </body>
 </html>
