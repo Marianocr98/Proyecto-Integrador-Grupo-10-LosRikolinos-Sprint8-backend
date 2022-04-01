@@ -18,7 +18,7 @@ window.addEventListener('load', function(){
     let errors_avatar = undefined;
     
     //eventos para fullName
-    fullName.addEventListener('change', function(e){
+    fullName.addEventListener('blur', function(e){
         if(fullName.value.length < 1){
             errors_fullName = '&#10005 Este campo debe estar completo &#128564';
         }else if( fullName.value.length < 2){
@@ -29,14 +29,14 @@ window.addEventListener('load', function(){
                 fullName.style.borderColor = 'red';
             }
         });
-    fullName.addEventListener('change', function(e){
+    fullName.addEventListener('blur ', function(e){
         if(fullName.value.length > 2){
             errorFN.innerHTML = "<p>" + "" + "</p>";
             fullName.style.borderColor = 'green';
         }
     });
     //eventos para password
-    password.addEventListener('change', function(e){
+    password.addEventListener('blur', function(e){
         if(password.value.length < 1){
             errors_password = '&#10005 Este campo debe estar completo &#128564'
         }else if(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9]).{8,}$/i.test(password.value) != true){
@@ -57,7 +57,7 @@ window.addEventListener('load', function(){
         }
     });
     //eventos para confirmPassword
-    confirmPassword.addEventListener('change', function(e){
+    confirmPassword.addEventListener('blur', function(e){
         if(confirmPassword.value.length < 1){
             errors_confirm = '&#10005 Debe confirmar su contraseña &#128556'
         }else if(password.value != confirmPassword.value){

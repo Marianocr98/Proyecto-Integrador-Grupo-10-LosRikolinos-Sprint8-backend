@@ -24,7 +24,7 @@ let errors_avatar = undefined;
 
 //eventos para fullName
 
-fullName.addEventListener('change', function(e){
+fullName.addEventListener('blur', function(e){
     if(fullName.value.length < 1){
         errors_fullName = '&#10005 Este campo debe estar completo &#128564';
     }else if( fullName.value.length < 2){
@@ -35,14 +35,14 @@ fullName.addEventListener('change', function(e){
             fullName.style.borderColor = 'red';
         }
     });
-fullName.addEventListener('change', function(e){
+fullName.addEventListener('blur', function(e){
     if(fullName.value.length > 2){
         errorFN.innerHTML = "<p>" + "" + "</p>";
         fullName.style.borderColor = 'green';
     }
 });
 //eventos para email
-email.addEventListener('change', function(e){
+email.addEventListener('blur', function(e){
     if(email.value.length < 1){
         errors_email= '&#10005 Este campo debe estar completo &#128564'
     }else if(/\b[a-z0-9-_.]+@[a-z0-9-_.]+(\.[a-z0-9]+)+/i.test(email.value) != true){
@@ -53,14 +53,14 @@ email.addEventListener('change', function(e){
         email.style.borderColor = 'red';
     }
 });
-email.addEventListener('change', function(e){
+email.addEventListener('blur', function(e){
     if(/\b[a-z0-9-_.]+@[a-z0-9-_.]+(\.[a-z0-9]+)+/i.test(email.value) == true){
         errorEmail.innerHTML = "<p>" + "" + "</p>";
         email.style.borderColor = 'green';
     }
 })
 //eventos para password
-password.addEventListener('change', function(e){
+password.addEventListener('blur', function(e){
     if(password.value.length < 1){
         errors_password = '&#10005 Este campo debe estar completo &#128564'
     }else if(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9]).{8,}$/i.test(password.value) != true){
@@ -71,7 +71,7 @@ password.addEventListener('change', function(e){
         password.style.borderColor = 'red'; 
     }
 });
-password.addEventListener('change', function(e){
+password.addEventListener('blur', function(e){
     if(errors_password == undefined){
         errorPassword.innerHTML = "<p>" + " " + "</p>";
         password.style.borderColor = 'green';
@@ -81,7 +81,7 @@ password.addEventListener('change', function(e){
     }
 });
 //eventos para confirmPassword
-confirmPassword.addEventListener('change', function(e){
+confirmPassword.addEventListener('blur', function(e){
     if(confirmPassword.value.length < 1){
         errors_confirm = '&#10005 Debe confirmar su contraseña &#128556'
     }else if(password.value != confirmPassword.value){

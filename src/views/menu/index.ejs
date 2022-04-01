@@ -105,41 +105,7 @@
       </div>
       <div>
       <div class="container-title">
-        <h2>Prueba las mejores empanadas del noroeste</h2>
-      </div>
-
-      <section  class="conteiner-especialidades">
-        <% producto.forEach(element => { %>
-            <article class="container-productos">
-                <a href="products/<%=element.id %>">
-                    <h4> <%= element.title  %> </h4>
-                </a> 
-                <div class="container-img-barrita">
-                    <div class="container-img">
-                        <a href="products/<%=element.id %>">
-                            <img src= "/img/products/<%= element.image %> " alt="<%= element.imgDescription %> ">
-                        </a>
-                        <h2> $<%= element.price %>,00 </h2>
-                    </div>
-                    <div class="container-barrita">
-                        <button>-</button>
-                        <p>1</p>
-                        <button>+</button>
-                        <button>Añadir al carrito</button>
-                    </div>
-                </div>
-        </article>
-          <% }) %>
-    </section>
-    <div class="ver-mas">
-        <a href="/products">
-          <p>Ver mas</p>
-        </a>
-      </div>
-
-    <div class="container-title">
-        <h2>Conozca a nuestro chef de confianza </h2>
-      </div>
+       
 
       <div class="container-title">
         <h2 id="Nosotros">Nosotros</h2>

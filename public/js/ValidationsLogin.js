@@ -10,7 +10,7 @@ window.addEventListener('load', function(){
     let errors_email = undefined;
     let errors_password = undefined;
 //eventos para email   
-    logEmail.addEventListener('change', function(e){
+    logEmail.addEventListener('blur', function(e){
         if(logEmail.value.length < 1){
             errors_email = '&#10005 Este campo debe estar completo &#10071'
         }else if(/\b[a-z0-9-_.]+@[a-z0-9-_.]+(\.[a-z0-9]+)+/i.test(logEmail.value) != true){
@@ -21,14 +21,14 @@ window.addEventListener('load', function(){
             logEmail.style.borderColor = 'red';
         }
     });
-    logEmail.addEventListener('change', function(e){
+    logEmail.addEventListener('blur', function(e){
         if(/\b[a-z0-9-_.]+@[a-z0-9-_.]+(\.[a-z0-9]+)+/i.test(logEmail.value) == true){
             errorEmail.innerHTML = "<p>" + " " + "</p>";
             logEmail.style.borderColor = 'green';
         }
     });
 //eventos para password
-    password.addEventListener('change', function(e){
+    password.addEventListener('blur', function(e){
 
         if(password.value.length < 1){
             errors_password = '&#10005 Este campo es obligatorio &#10071' 
