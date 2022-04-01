@@ -55,6 +55,7 @@ const products = require('./routers/productsRouter');
 //Requerimiento rutas Api
 const apiProductRutas = require('./routers/api/product') /*airu*/
 const apiUserRutas = require('./routers/api/user')
+const apiCategory = require('./routers/api/category')
 
 /* RUTAS */
 app.use('/', mainRutas);
@@ -63,10 +64,11 @@ app.use('/', products);
 
 app.use('/api/products', apiProductRutas);
 app.use('/api/user', apiUserRutas);
+app.use('/api/category', apiCategory);
 
 /*Server Funcionando*/
-app.listen(process.env.PORT || 3000, ()=>{
-    console.log('Servidor funcionando puerto 3000');
+app.listen(process.env.PORT || 3001, ()=>{
+    console.log('Servidor funcionando puerto 3001');
 });
 
 app.use((req,res, next) =>{
