@@ -3,7 +3,7 @@ const db = require('../../database/models');
 controller = {
     list: (req, res) =>{
         db.Product.findAll({
-            attributes: ['id', 'title', 'description', 'category_id']
+            attributes: ['id', 'title', 'description', 'category_id', 'price']
         })
         .then(products =>{
             let listProducts = [];
@@ -13,7 +13,8 @@ controller = {
                     title: product.title,
                     description: product.description,
                     category: product.category_id,
-                    detail: '/api/products/' + product.id
+                    price: product.price,
+                    detail: '/api/products/'+product.id
                 })
             });
             let Hamburguesas = products.filter(product => product.category_id === 1).length
