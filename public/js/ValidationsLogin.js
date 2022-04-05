@@ -40,7 +40,7 @@ window.addEventListener('load', function(){
             password.style.borderColor = 'red'; 
         }
     });
-    password.addEventListener('change', function(e){
+    password.addEventListener('blur', function(e){
         if(password.value.length >= 8){
             errorPassword.innerHTML = "<p>" + " " + "</p>";
             password.style.borderColor = 'green';

@@ -92,14 +92,14 @@ confirmPassword.addEventListener('blur', function(e){
         confirmPassword.style.borderColor = 'red';
     }
 });
-confirmPassword.addEventListener('change', function(e){
-    if(password.value == confirmPassword.value){
+confirmPassword.addEventListener('blur', function(e){
+    if(password.value == confirmPassword.value && confirmPassword.value.length >= 8){
         errorConfirm.innerHTML = "<p>" + "" + "</p>";
         confirmPassword.style.borderColor = 'green';
     }
 })
 //eventos para avatar
-avatar.addEventListener('change', function(e){
+avatar.addEventListener('blur', function(e){
     if(avatar.value == ''){
         errors_avatar = '&#10005 Debe subir una imagen &#128579'
     }else if(/(.jpg|.jpeg|.png|.gif|bmp|tiff)$/i.test(avatar.value) != true){
@@ -112,7 +112,7 @@ avatar.addEventListener('change', function(e){
 
     }
 });
-avatar.addEventListener('change', function(e){
+avatar.addEventListener('blur', function(e){
     if(/(.jpg|.jpeg|.png|.gif|bmp|tiff)$/i.test(avatar.value) == true){
         errorAvatar.innerHTML = "<p>" + "" + "</p>";
         avatar.style.borderColor = 'green';
